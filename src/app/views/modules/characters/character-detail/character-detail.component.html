@@ -1,0 +1,18 @@
+<div *ngIf="character" class="container max-w-xs h-96 mx-auto bg-white rounded-lg overflow-hidden shadow-lg my-8 relative">
+
+  <!-- Imagen del personaje -->
+  <img class="w-full h-64 object-cover container__image" [src]="character.image" alt="Nombre del personaje">
+
+  <!-- Contenedor de texto sobre la imagen -->
+  <div class="absolute top-0 left-0 w-full h-full text-black flex flex-col justify-end p-4 bg-opacity-75 bg-gray-800">
+
+    <!-- Contenido de texto -->
+    <h2 class="text-xl font-semibold mb-2 text-white">{{character.name}}</h2>
+    <p class="text-gray-300">Especie: {{character.species}}</p>
+    <p class="text-gray-300">Status: {{character.status}}</p>
+    <p class="text-gray-300">Género: {{character.gender}}</p>
+
+    <!-- Agrega más información según sea necesario -->
+
+  </div>
+</div>

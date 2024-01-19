@@ -1,0 +1,26 @@
+<!-- sidebar.component.html -->
+<aside class="bg-gray-800 text-white h-screen w-60 fixed top-0 left-0 overflow-y-auto transition-transform duration-300 ease-in-out transform"
+      [class.transform-translate-x]="isSidebarOpen">
+      <div class="text-end">
+        <button (click)="toggleSidebar()" class="text-gray-500 hover:text-white focus:outline-none focus:text-white">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+  <div class="p-4">
+    <h1 class="text-xl font-semibold">Geeks Castle</h1>
+  </div>
+
+  <nav class="px-4">
+    <ul>
+      <li class="mb-2 cursor-pointer">
+        <a routerLink="/" routerLinkActive="font-bold" (click)="toggleSidebar()">Inicio</a>
+      </li>
+      <li class="mb-2 cursor-pointer">
+        <a (click)="navigate('personajes')" routerLinkActive="font-bold" >Personajes</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
