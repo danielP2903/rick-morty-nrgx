@@ -1,9 +1,9 @@
-<div class="space-x-4 p-4 max-w-screen-lg mx-auto">
+<div class="space-x-4 p-4 max-w-screen-lg mx-auto"   [ngClass]="{'bg-red-200':character.selected}">
   <div
         class="bg-white rounded-lg overflow-hidden
         shadow-lg lg:w-full hover:bg-gray-200 cursor-pointer
         md:w-auto md:inline-block sm:w-auto sm:inline-block"
-        [ngClass]="{'bg-gray-200':character.selected}">
+      >
     <div class="lg:flex lg:flex-row items-center justify-between p-4 md:flex md:flex-col md:items-center sm:items-center sm:flex sm:flex-col">
 
       <img loading="lazy" class="image object-cover" [src]="character.image" alt="{{ character.name }}">

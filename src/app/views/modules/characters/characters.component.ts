@@ -81,7 +81,20 @@ export class CharactersComponent implements OnInit,OnDestroy {
   }
 
   navigateDetail() {
-    this.router.navigate(['detalle'])
+    if(this.charactersSelected.length === 0){
+      this.reduxService.setMessage({message:MESSAGES.NOT_SELECTED_CHARACTERS,'status':'Error'});
+    }else{
+      this.router.navigate(['detalle'])
+    }
+  }
+
+  clearSelection() {
+    this.charactersSelected = [];
+    const charactersNoSelected = this.characters.map((char) => {
+      return {...char, selected:false}
+    })
+    this.reduxService.selectCharacter(charactersNoSelected);
+
   }
 
 
