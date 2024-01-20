@@ -76,7 +76,6 @@ export class CharactersComponent implements OnInit,OnDestroy {
       }
       this.reduxService.selectCharacter(characters);
     }
-    console.log(this.charactersSelected);
 
 
   }
