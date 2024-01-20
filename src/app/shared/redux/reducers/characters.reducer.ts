@@ -1,6 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import ICharacter from "src/app/views/modules/interfaces/characters-model";
-import { getCharacters } from "../actions/characters.actions";
+import { getCharacterById, getCharacters } from "../actions/characters.actions";
+import { ICharacterByIdState } from "../interfaces/character";
 
 export interface CharacterInitialState {
   loaded:boolean;
@@ -12,11 +13,28 @@ export const initialState:CharacterInitialState = {
   characters:[]
 }
 
+export const characterByIdState:ICharacterByIdState = {
+  loaded:false,
+  character:{}
+}
+
 export const charactersReducer = createReducer(
   initialState,
-  on(getCharacters,(state,{characters}) => {return {
+  on(getCharacters,(state,{characters}) => {
+    return {
+      ...state,
+      characters,
+      loaded:true
+
+    }
+
+  })
+)
+export const characterByIdReducer = createReducer(
+  characterByIdState,
+  on(getCharacterById,(state,{character}) => {return {
     ...state,
-    characters,
+    character,
     loaded:true
 
   }})

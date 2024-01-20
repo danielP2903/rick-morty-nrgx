@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import ICharacter from '../../interfaces/characters-model';
 
 @Component({
@@ -8,4 +8,10 @@ import ICharacter from '../../interfaces/characters-model';
 })
 export class CharactersListComponent {
 @Input() charactersList:ICharacter[] = [];
+@Output() characterSelected = new EventEmitter<ICharacter>();
+
+
+  emitCharacter(char:ICharacter) {
+    this.characterSelected.emit({...char});
+  }
 }

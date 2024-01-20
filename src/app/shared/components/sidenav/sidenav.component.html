@@ -1,11 +1,9 @@
-<!-- sidebar.component.html -->
 <aside class="bg-gray-800 text-white h-screen w-60 fixed top-0 left-0 overflow-y-auto transition-transform duration-300 ease-in-out transform"
-      [class.transform-translate-x]="isSidebarOpen">
+      [class.transform-translate-x]="!isSidebarOpen">
       <div class="text-end">
         <button (click)="toggleSidebar()" class="text-gray-500 hover:text-white focus:outline-none focus:text-white">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-               xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
           </svg>
         </button>
       </div>
@@ -24,3 +22,8 @@
     </ul>
   </nav>
 </aside>
+<button [class.transform-translate-x]="isSidebarOpen" (click)="toggleSidebar()" class="text-gray-500 bg-black-500 p-4 hover:text-white focus:outline-none focus:text-white">
+  <svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+  </svg>
+</button>

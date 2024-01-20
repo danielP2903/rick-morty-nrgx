@@ -4,16 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { appReducers } from './shared/redux/reducers/app.state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { EffectsList } from './shared/redux/effects/effects-list';
-import { CharacterEffects } from './shared/redux/effects/character.effect';
+import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { ToastComponent } from './shared/components/toast/toast.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoaderComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,11 @@ import { CharacterEffects } from './shared/redux/effects/character.effect';
     EffectsModule.forRoot([...EffectsList]),
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

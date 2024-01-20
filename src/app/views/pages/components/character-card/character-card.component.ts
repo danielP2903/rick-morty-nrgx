@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import ICharacter from 'src/app/views/modules/interfaces/characters-model';
+import { RickMortyService } from 'src/app/views/modules/services/rick-morty/rick-morty.service';
 
 @Component({
   selector: 'app-character-card',
@@ -11,9 +12,7 @@ export class CharacterCardComponent {
 
   @Input() character!:ICharacter;
 
-  constructor(private readonly router:Router){}
+  constructor(){}
 
-  viewDetail() {
-    this.router.navigate(['detalle']);
-  }
+
 }

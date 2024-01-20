@@ -4,3 +4,11 @@
     height: 26rem;
   }
 }
+.selected-image {
+  border: 3px solid #4CAF50;
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.5);
+}
+
+.no-brigthen-image {
+  filter: brightness(0.4);
+}

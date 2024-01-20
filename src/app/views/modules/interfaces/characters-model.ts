@@ -25,6 +25,7 @@ interface ICharacter {
   episode: IEpisode;
   url: string;
   created: string;
+  selected?:boolean;
 }
 
 export default ICharacter;

@@ -6,3 +6,12 @@
   }
 
 }
+
+@media screen and (min-width: 181px) and (max-width: 768px) {
+  .container {
+    &__content{
+      margin-left: 0;
+      margin-top: 160px;
+    }
+  }
+}

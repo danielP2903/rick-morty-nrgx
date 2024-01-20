@@ -1,24 +1,14 @@
-<!-- <div class="max-w-xs mx-auto bg-white rounded-lg overflow-hidden shadow-lg my-8">
-  <img class="w-full h-48 object-cover" [src]="character.image" alt="Nombre del personaje">
-
-  <div class="p-4">
-    <h2 class="text-xl font-semibold text-gray-800">Nombre del Personaje</h2>
-    <p class="text-gray-600">Especie: Humano</p>
-    <p class="text-gray-600">Status: Vivo</p>
-    <p class="text-gray-600">Género: Masculino</p>
-    <div class="mt-4">
-      <a href="#" class="text-blue-500 hover:underline">Ver más</a>
-    </div>
-  </div>
-</div> -->
-
-<div class="flex space-x-4 p-4 max-w-screen-lg mx-auto">
-  <div  class="bg-white rounded-lg overflow-hidden shadow-lg w-full hover:bg-gray-200 cursor-pointer">
-    <div class="flex flex-row items-center justify-between p-4">
+<div class="space-x-4 p-4 max-w-screen-lg mx-auto">
+  <div
+        class="bg-white rounded-lg overflow-hidden
+        shadow-lg lg:w-full hover:bg-gray-200 cursor-pointer
+        md:w-auto md:inline-block sm:w-auto sm:inline-block"
+        [ngClass]="{'bg-gray-200':character.selected}">
+    <div class="lg:flex lg:flex-row items-center justify-between p-4 md:flex md:flex-col md:items-center sm:items-center sm:flex sm:flex-col">
 
       <img loading="lazy" class="image object-cover" [src]="character.image" alt="{{ character.name }}">
       <h2 class="text-xl font-semibold text-gray-800">{{ character.name }}</h2>
-      <div class="flex flex-col">
+      <div class="flex flex-col md:items-center sm:items-center">
         <p class="text-gray-600">Status: {{ character.status }}</p>
         <p class="text-gray-600">Location: {{character.location.name}}</p>
       </div>
@@ -27,8 +17,6 @@
         <p class="text-gray-600">Gender: {{character.gender}}</p>
       </div>
       <div class="mt-4">
-        <app-button [text]="'Ver Detalle'" (emitAction)="this.viewDetail()"></app-button>
-        <!-- <a [routerLink]="['/character', character.id]" class="text-blue-500 hover:underline">Ver más</a> -->
       </div>
     </div>
   </div>

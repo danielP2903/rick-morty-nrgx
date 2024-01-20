@@ -1,0 +1,20 @@
+<div *ngIf="showToast" class="fixed bottom-4 right-4 {{bgColor}} text-white p-4 rounded-md shadow-md opacity-90" data-te-toast-init data-te-autohide="true">
+  <div class="flex items-center">
+    <div class="rounded-full h-6 w-6 flex items-center justify-center">
+      <ng-container *ngIf="status === 'Success'; else errorIcon">
+        <svg class="text-white h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </ng-container>
+      <ng-template #errorIcon>
+        <svg class="text-white h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </ng-template>
+    </div>
+    <div class="ml-2">
+      <div class="text-sm font-semibold">{{ 'Mensaje' }}</div>
+      <div class="text-xs">{{ message }}</div>
+    </div>
+  </div>
+</div>

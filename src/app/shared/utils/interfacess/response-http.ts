@@ -1,4 +1,4 @@
-import ICharacter from '../../views/modules/interfaces/characters-model';
+import ICharacter from '../../../views/modules/interfaces/characters-model';
 export interface IResponseHttp {
   info: IInfo;
   results: ICharacter[]

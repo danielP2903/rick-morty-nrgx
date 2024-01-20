@@ -1,18 +1,34 @@
-<div *ngIf="character" class="container max-w-xs h-96 mx-auto bg-white rounded-lg overflow-hidden shadow-lg my-8 relative">
-
-  <!-- Imagen del personaje -->
-  <img class="w-full h-64 object-cover container__image" [src]="character.image" alt="Nombre del personaje">
-
-  <!-- Contenedor de texto sobre la imagen -->
-  <div class="absolute top-0 left-0 w-full h-full text-black flex flex-col justify-end p-4 bg-opacity-75 bg-gray-800">
-
-    <!-- Contenido de texto -->
-    <h2 class="text-xl font-semibold mb-2 text-white">{{character.name}}</h2>
-    <p class="text-gray-300">Especie: {{character.species}}</p>
-    <p class="text-gray-300">Status: {{character.status}}</p>
-    <p class="text-gray-300">Género: {{character.gender}}</p>
-
-    <!-- Agrega más información según sea necesario -->
-
+<section>
+  <div class="p-12 text-xl font-semibold text-gray-800">
+    <h1>Detalle de {{character.name}}</h1>
   </div>
-</div>
+  <div *ngIf="!showLoader">
+    <div *ngIf="character" class="container max-w-xs h-96 mx-auto bg-white rounded-lg overflow-hidden shadow-lg my-8 relative">
+      <img class="w-full h-64 object-cover container__image" [src]="character.image" alt="Nombre del personaje">
+      <div class="absolute top-0 left-0 w-full h-full text-black flex flex-col justify-end p-4 bg-opacity-75 bg-gray-800">
+        <h2 class="text-xl font-semibold mb-2 text-white">{{character.name}}</h2>
+        <p class="text-gray-300">Especie: {{character.species}}</p>
+        <p class="text-gray-300">Status: {{character.status}}</p>
+        <p class="text-gray-300">Género: {{character.gender}}</p>
+        <div class="flex justify-around sm:justify-center items-center space-x-4 sm:space-x-2 p-4 cursor-pointer">
+                <img
+                  *ngFor="let char of charactersSelected"
+                  class="w-12 h-12 rounded-full border-2 border-white"
+                  (click)="getCharacterById(char.id)"
+                  [ngClass]="{'border-solid border-green-500 bg-opacity-20 bg-gray-800 selected-image': char.id === characterShow.id,
+                              'no-brigthen-image':char.id !== characterShow.id}"
+                  [src]="char.image">
+        </div>
+      </div>
+
+    </div>
+    <!-- [ngClass]="{'border-solid border-green-500 bg-opacity-20 bg-gray-800': char.id === characterShow.id}" -->
+
+    <div class="p-6">
+      <app-button text="Volver" (emitAction)="navigateListCharacters()"></app-button>
+    </div>
+  </div>
+  <app-skeleton *ngIf="showLoader"></app-skeleton>
+</section>
+
+

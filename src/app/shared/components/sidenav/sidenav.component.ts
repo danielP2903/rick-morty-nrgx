@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SidenavComponent {
 
-  isSidebarOpen: boolean = false;
-
+  isSidebarOpen: boolean = true;
+  widthBrowser:any;
   constructor(private router:Router){}
 
   toggleSidebar() {
@@ -17,5 +17,14 @@ export class SidenavComponent {
   }
   navigate(route:string) {
     this.router.navigate([`${route}`])
+  }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.widthBrowser = window.innerWidth;
+    if(this.widthBrowser < 768){
+      this.isSidebarOpen = false;
+    }else {
+      this.isSidebarOpen = true
+    }
   }
 }
